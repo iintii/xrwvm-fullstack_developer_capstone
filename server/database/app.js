@@ -83,16 +83,16 @@ app.post('/insert_review', express.raw({ type: '*/*' }), async (req, res) => {
   let new_id = documents[0]['id']+1
 
   const review = new Reviews({
-		"id": new_id,
-		"name": data['name'],
-		"dealership": data['dealership'],
-		"review": data['review'],
-		"purchase": data['purchase'],
-		"purchase_date": data['purchase_date'],
-		"car_make": data['car_make'],
-		"car_model": data['car_model'],
-		"car_year": data['car_year'],
-	});
+	"id": new_id,
+	"name": data.name,
+	"dealership": data.dealership,
+	"review": data.review,
+	"purchase": data.purchase,
+	"purchase_date": data.purchase_date,
+	"car_make": data.car_make,
+	"car_model": data.car_model,    // <-- Changed
+	"car_year": data.car_year       // <-- Changed
+});
 
   try {
     const savedReview = await review.save();
