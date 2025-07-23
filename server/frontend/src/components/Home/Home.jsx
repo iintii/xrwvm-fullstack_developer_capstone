@@ -49,7 +49,7 @@ function Home() {
         </Link>
 
         {/* Dealers Button */}
-        <Link to="/dealerships" style={buttonStyle} onMouseOver={(e) => e.currentTarget.style.backgroundColor = buttonHoverStyle.backgroundColor} onMouseOut={(e) => e.currentTarget.style.backgroundColor = buttonStyle.backgroundColor}>
+        <Link to="/dealers" style={buttonStyle} onMouseOver={(e) => e.currentTarget.style.backgroundColor = buttonHoverStyle.backgroundColor} onMouseOut={(e) => e.currentTarget.style.backgroundColor = buttonStyle.backgroundColor}>
           View Dealerships
         </Link>
       </div>
