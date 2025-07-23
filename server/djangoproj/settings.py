@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = \
     'django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'brody8991-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'djangoproj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend/static')], # Fix Line 64: E231 missing whitespace after ','
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/static')],  # Corrected spacing
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,9 +89,9 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': ( # Fix Line 93: E501 line too long (83 > 79 characters)
+        'NAME': (
             'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
-        ),
+        ),  # User similarity validator
     },
     {
         'NAME':
@@ -136,6 +136,5 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/static') # Fix Line 138: E231 missing whitespace after ','
+    os.path.join(BASE_DIR, 'frontend/static')  # Static files directory
 ]
-# Fix Line 140: W391 blank line at end of file (removed the blank line)
