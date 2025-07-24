@@ -22,19 +22,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0"
+SECRET_KEY = (
+    "django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0"
+)
 
 # SECURITY WARNING: don't run with debug on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
-    # Fix Line 32 (previously 31/32 in past reports): E501 line too long
-    "brody8991-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
+    (  # Fix Line 33: E501 line too long (splitting URL string)
+        "brody8991-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01"
+        ".proxy.cognitiveclass.ai"
+    ),
 ]
 CSRF_TRUSTED_ORIGINS = [
-    # Fix Line 35 (previously 32/35 in past reports): E501 line too long
-    "https://brody8991-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
+    (  # Fix Line 37: E501 line too long (splitting URL string)
+        "https://brody8991-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01"
+        ".proxy.cognitiveclass.ai"
+    )
 ]
 
 REST_FRAMEWORK = {
@@ -98,8 +104,10 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": (
-            # Fix Line 99 (previously 93/104): E501 line too long (using parentheses)
-            "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+            # Fix Line 101: E501 (comment too long, shortened)
+            # UserAttributeSimilarityValidator (splitting string on line 102)
+            "django.contrib.auth.password_validation." # Fix Line 102: E501 (splitting string)
+            "UserAttributeSimilarityValidator"
         ),  # User similarity validator
     },
     {
@@ -147,7 +155,7 @@ MEDIA_URL = "/media/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [
-    os.path.join(  # Fix Line 146 (previously 141): E501 line too long
+    os.path.join(  # This was previously line 146, which was fixed
         BASE_DIR, "frontend/static"
     )
 ]  # Static files directory
