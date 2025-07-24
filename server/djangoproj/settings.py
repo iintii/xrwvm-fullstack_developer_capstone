@@ -105,8 +105,8 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": (
             # Fix Line 101: E501 (comment too long, shortened)
-            # UserAttributeSimilarityValidator (splitting string on line 102)
-            "django.contrib.auth.password_validation." # Fix Line 102: E501 (splitting string)
+           
+            "django.contrib.auth.password_validation." 
             "UserAttributeSimilarityValidator"
         ),  # User similarity validator
     },
