@@ -101,7 +101,8 @@ def get_dealer_reviews(request, dealer_id):
         endpoint = "/fetchReviews/dealer/" + str(dealer_id)
         reviews = get_request(endpoint)
         for review_detail in reviews:
-            sentiment_response = analyze_review_sentiments(review_detail["review"])
+            sentiment_response = analyze_review_sentiments(
+                review_detail["review"])
             print(sentiment_response)
             review_detail["sentiment"] = sentiment_response["sentiment"]
         return JsonResponse({"status": 200, "reviews": reviews})
@@ -113,7 +114,7 @@ def add_review(request):
     if not request.user.is_anonymous:
         data = json.loads(request.body)
         try:
-            post_review(data) # No need to assign to 'response' if not used
+            post_review(data)  # No need to assign to 'response' if not used
             return JsonResponse({"status": 200})
         except BaseException:
             return JsonResponse(
