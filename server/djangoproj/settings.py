@@ -27,11 +27,13 @@ SECRET_KEY = "django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0
 # SECURITY WARNING: don't run with debug on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [  # Fix Line 31 (originally 31 in the current context)
+ALLOWED_HOSTS = [
     "localhost",
+    # Fix Line 32 (previously 31/32 in past reports): E501 line too long
     "brody8991-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
 ]
-CSRF_TRUSTED_ORIGINS = [  # Fix Line 32 (originally 32 in the current context)
+CSRF_TRUSTED_ORIGINS = [
+    # Fix Line 35 (previously 32/35 in past reports): E501 line too long
     "https://brody8991-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
 ]
 
@@ -65,7 +67,7 @@ ROOT_URLCONF = "djangoproj.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [  # Fix Line 64 (originally 64 in the current context)
+        "DIRS": [
             os.path.join(BASE_DIR, "frontend/static")
         ],
         "APP_DIRS": True,
@@ -93,19 +95,20 @@ DATABASES = {
     }
 }
 
-AUTH_PASSWORD_VALIDATORS = [  # Fix Line 103: E501 (by moving opening bracket)
+AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": (  # Fix Line 104 (previously 93): E501 (already wrapped)
+        "NAME": (
+            # Fix Line 99 (previously 93/104): E501 line too long (using parentheses)
             "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
         ),  # User similarity validator
     },
     {
-        "NAME": (  # Fix Line 108 (previously 106): E501 (wrapping string)
+        "NAME": (
             "django.contrib.auth.password_validation.MinimumLengthValidator"
         ),
     },
     {
-        "NAME": (  # Fix Line 112 (previously 109): E501 (wrapping string)
+        "NAME": (
             "django.contrib.auth.password_validation.CommonPasswordValidator"
         ),
     },
@@ -143,6 +146,8 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATICFILES_DIRS = [  # Fix Line 141 (originally 141 in current context): E501 (by moving opening bracket & comment)
-    os.path.join(BASE_DIR, "frontend/static")
+STATICFILES_DIRS = [
+    os.path.join(  # Fix Line 146 (previously 141): E501 line too long
+        BASE_DIR, "frontend/static"
+    )
 ]  # Static files directory
