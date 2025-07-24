@@ -1,6 +1,6 @@
 # Uncomment the required imports before adding the code
 
-rom django.shortcuts import render
+from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth import login, authenticate
 import logging
