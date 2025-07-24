@@ -1,6 +1,5 @@
 # Uncomment the required imports before adding the code
 
-from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth import login, authenticate
 import logging
@@ -102,9 +101,9 @@ def get_dealer_reviews(request, dealer_id):
         endpoint = "/fetchReviews/dealer/" + str(dealer_id)
         reviews = get_request(endpoint)
         for review_detail in reviews:
-            response = analyze_review_sentiments(review_detail["review"])
-            print(response)
-            review_detail["sentiment"] = response["sentiment"]
+            sentiment_response = analyze_review_sentiments(review_detail["review"])
+            print(sentiment_response)
+            review_detail["sentiment"] = sentiment_response["sentiment"]
         return JsonResponse({"status": 200, "reviews": reviews})
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
@@ -114,7 +113,7 @@ def add_review(request):
     if not request.user.is_anonymous:
         data = json.loads(request.body)
         try:
-            response = post_review(data)
+            post_review(data) # No need to assign to 'response' if not used
             return JsonResponse({"status": 200})
         except BaseException:
             return JsonResponse(
